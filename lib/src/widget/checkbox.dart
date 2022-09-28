@@ -127,6 +127,7 @@ class NeumorphicCheckbox extends StatelessWidget {
   final EdgeInsets margin;
   final Duration duration;
   final Curve curve;
+  final Widget? child;
 
   NeumorphicCheckbox({
     this.style = const NeumorphicCheckboxStyle(),
@@ -137,6 +138,7 @@ class NeumorphicCheckbox extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
     this.margin = const EdgeInsets.all(0),
     this.isEnabled = true,
+    this.child,
   });
 
   bool get isSelected => this.value;
@@ -191,7 +193,7 @@ class NeumorphicCheckbox extends StatelessWidget {
       },
       drawSurfaceAboveChild: true,
       minDistance: selectedDepth.abs(),
-      child: Icon(
+      child: this.child ?? Icon(
         NeumorphicIcons.check,
         color: iconColor,
         size: 20.0,
